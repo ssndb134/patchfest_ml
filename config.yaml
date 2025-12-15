@@ -1,0 +1,23 @@
+PIPELINE_SETTINGS:
+  LOG_FILE: logs/pipeline.log
+
+DATA_SETTINGS:
+  INPUT_FILE: data/raw/data.csv
+  TARGET_COLUMN: target
+  TRAIN_RATIO: 0.7
+  VAL_RATIO: 0.15
+
+FEATURE_SETTINGS:
+  LAGS: [1, 7, 30]
+  ROLLING_WINDOW: 7
+
+MODEL_SETTINGS:
+  ARIMA:
+    ENABLED: true
+  XGBOOST:
+    ENABLED: true
+    PARAMS_FILE: artifacts/best_params_xgb.json
+  LSTM:
+    ENABLED: true
+    LOOKBACK_WINDOW: 30
+    EPOCHS: 50
