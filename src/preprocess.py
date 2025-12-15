@@ -1,4 +1,6 @@
 import pandas as pd
+import os
+
 from sklearn.preprocessing import MinMaxScaler
 
 def fill_missing(df):
@@ -15,5 +17,9 @@ def normalize(df, cols):
     return df, scaler
 
 def detect_duplicates(df):
-    dup=df.duplicated()
-    return df[dup]
+    key_cols = ["movie_name", "date", "time", "seat", "screen"]
+    duplicates = df[df.duplicated(subset=key_cols, keep=False)]
+    os.makedirs("reports", exist_ok=True)
+    duplicates.to_csv("reports/duplicates.csv", index=False)
+    print(f"Duplicate tickets: {len(duplicates)}")
+    return duplicates
