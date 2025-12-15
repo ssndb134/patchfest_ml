@@ -1,0 +1,5 @@
+movie_name,date,time,seat,screen,price,count,weekday,is_weekend,month,weekofyear,lag_1,lag_7,lag_30,rolling_mean_7,rolling_std_7
+Avatar 2,2024-05-12,18:30,B12,3,250,120,6,1,5,19,0.0,0.0,0.0,0.0,0.0
+Interstellar,2024-06-15,21:15,D5,2,300,150,5,1,6,24,120.0,0.0,0.0,0.0,0.0
+Tenet,2024-07-15,11:45,A1,4,220,75,0,0,7,29,150.0,0.0,0.0,0.0,0.0
+Inception,2024-08-12,14:00,C7,1,180,98,0,0,8,33,75.0,0.0,0.0,0.0,0.0
