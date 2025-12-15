@@ -1,0 +1,11 @@
+Image: data\raw\test_sample.png
+Text threshold: 0.5
+Preprocessing: True
+Contrast factor: 1.5
+--------------------------------------------------
+Sample Text (confidence: 0.988)
+123 (confidence: 1.000)
+Test OCR System (confidence: 0.941)
+--------------------------------------------------
+Combined text:
+Sample Text 123 Test OCR System

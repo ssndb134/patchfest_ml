@@ -1,0 +1,16 @@
+Image: data\raw\sample_ticket_1.png
+Text threshold: 0.5
+Preprocessing: True
+Contrast factor: 1.5
+--------------------------------------------------
+Hovie: (confidence: 0.928)
+Rvatar (confidence: 0.714)
+2024-05-12 (confidence: 0.982)
+Time (confidence: 0.997)
+18: 30 (confidence: 0.688)
+B1Z (confidence: 0.552)
+Screen: (confidence: 0.936)
+250 (confidence: 1.000)
+--------------------------------------------------
+Combined text:
+Hovie: Rvatar 2024-05-12 Time 18: 30 B1Z Screen: 250
