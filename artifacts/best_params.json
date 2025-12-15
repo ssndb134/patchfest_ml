@@ -1,0 +1,15 @@
+{
+    "arima": {
+        "p": 1,
+        "d": 1,
+        "q": 1
+    },
+    "xgboost": {
+        "n_estimators": 377,
+        "max_depth": 3,
+        "learning_rate": 0.026671027318092268,
+        "subsample": 0.6665780755222137,
+        "colsample_bytree": 0.5040081690073456
+    },
+    "lstm": "Skipped"
+}
