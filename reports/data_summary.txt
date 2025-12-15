@@ -1,0 +1,16 @@
+#output generated when data_summary.py is run
+DATASET SUMMARY REPORT
+
+Row count: 4
+Column count: 7
+
+Missing values per column:
+  movie_name: 0
+  date: 0
+  time: 0
+  seat: 0
+  screen: 0
+  price: 0
+  count: 0
+
+Unique movie names count: 4
