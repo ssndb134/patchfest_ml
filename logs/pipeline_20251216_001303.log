@@ -1,0 +1,43 @@
+2025-12-16 00:13:03,541 - INFO - === Starting Stage: preprocess ===
+2025-12-16 00:13:03,541 - INFO - Executing script: src/features.py
+2025-12-16 00:13:04,117 - INFO - [preprocess] Output:
+Processing C:\Users\Aishwarya\event\patchfestmlai\data\processed\structured_sample.csv...
+Transformed data saved to C:\Users\Aishwarya\event\patchfestmlai\data\processed\enhanced_forecast_data.csv
+     movie_name       date   time  ... lag_30  rolling_mean_7  rolling_std_7
+0      Avatar 2 2024-05-12  18:30  ...    0.0             0.0            0.0
+1  Interstellar 2024-06-15  21:15  ...    0.0             0.0            0.0
+2         Tenet 2024-07-15  11:45  ...    0.0             0.0            0.0
+3     Inception 2024-08-12  14:00  ...    0.0             0.0            0.0
+
+[4 rows x 16 columns]
+2025-12-16 00:13:04,118 - INFO - === Stage preprocess COMPLETED Successfully ===
+2025-12-16 00:13:04,118 - INFO - === Starting Stage: train_lstm ===
+2025-12-16 00:13:04,118 - INFO - Executing script: src/models/lstm_model.py
+2025-12-16 00:13:08,819 - INFO - [train_lstm] Output:
+Not enough data points (4) for window 30 and horizon 30.
+Using dummy data for demonstration (Since prompt asked for Code Design/Implementation).
+Validation set too small for sliding window. Adjusting split or using train for demo.
+Starting training...
+Epoch 1/50, Train Loss: 28523.7515, Val Loss: 31488.4487
+Epoch 11/50, Train Loss: 25371.8110, Val Loss: 30444.7676
+Epoch 21/50, Train Loss: 27438.1162, Val Loss: 29396.0093
+Epoch 31/50, Train Loss: 22935.2312, Val Loss: 28466.1035
+Epoch 41/50, Train Loss: 24531.1221, Val Loss: 27616.0547
+Training complete. Best Val Loss: 26882.8765
+Model saved to models/lstm.pt
+2025-12-16 00:13:08,819 - INFO - === Stage train_lstm COMPLETED Successfully ===
+2025-12-16 00:13:08,819 - INFO - === Starting Stage: train_ensemble ===
+2025-12-16 00:13:08,819 - INFO - Executing script: src/train_ensemble.py
+2025-12-16 00:13:17,567 - INFO - [train_ensemble] Output:
+Data too small, generating synthetic data for ensemble demonstration.
+Fitting ARIMA...
+Fitting XGBoost...
+Fitting LSTM...
+Ensemble RMSE: 23.0594
+ARIMA RMSE: 12.7287
+XGB RMSE: 6.7485
+LSTM RMSE: 117.5098
+Ensemble model saved to models/ensemble.pkl
+Comparison chart saved to plots/ensemble_compare.png
+2025-12-16 00:13:17,567 - INFO - === Stage train_ensemble COMPLETED Successfully ===
+2025-12-16 00:13:17,567 - INFO - Pipeline execution finished successfully.

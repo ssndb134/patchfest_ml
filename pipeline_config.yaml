@@ -1,0 +1,16 @@
+stages:
+  preprocess:
+    script: "src/features.py"
+    description: "Generates features like lags and rolling stats from data."
+  
+  train_lstm:
+    script: "src/models/lstm_model.py"
+    description: "Trains the LSTM model on processed data."
+
+  train_ensemble:
+    script: "src/train_ensemble.py"
+    description: "Trains ensemble blending ARIMA, XGB, LSTM."
+
+  tune:
+    script: "src/tune_hyperparameters.py"
+    description: "Runs Optuna optimization."

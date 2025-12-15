@@ -1,0 +1,44 @@
+2025-12-16 00:12:02,983 - INFO - === Starting Stage: preprocess ===
+2025-12-16 00:12:02,983 - INFO - Executing script: src/features.py
+2025-12-16 00:12:03,818 - INFO - [preprocess] Output:
+Processing C:\Users\Aishwarya\event\patchfestmlai\data\processed\structured_sample.csv...
+Transformed data saved to C:\Users\Aishwarya\event\patchfestmlai\data\processed\enhanced_forecast_data.csv
+     movie_name       date   time  ... lag_30  rolling_mean_7  rolling_std_7
+0      Avatar 2 2024-05-12  18:30  ...    0.0             0.0            0.0
+1  Interstellar 2024-06-15  21:15  ...    0.0             0.0            0.0
+2         Tenet 2024-07-15  11:45  ...    0.0             0.0            0.0
+3     Inception 2024-08-12  14:00  ...    0.0             0.0            0.0
+
+[4 rows x 16 columns]
+2025-12-16 00:12:03,818 - INFO - === Stage preprocess COMPLETED Successfully ===
+2025-12-16 00:12:03,818 - INFO - === Starting Stage: train_lstm ===
+2025-12-16 00:12:03,818 - INFO - Executing script: src/models/lstm_model.py
+2025-12-16 00:12:09,673 - INFO - [train_lstm] Output:
+Not enough data points (4) for window 30 and horizon 30.
+Using dummy data for demonstration (Since prompt asked for Code Design/Implementation).
+Validation set too small for sliding window. Adjusting split or using train for demo.
+Starting training...
+Epoch 1/50, Train Loss: 29632.6055, Val Loss: 32007.0654
+Epoch 11/50, Train Loss: 27058.3784, Val Loss: 30998.2378
+Epoch 21/50, Train Loss: 25153.5356, Val Loss: 29913.0591
+Epoch 31/50, Train Loss: 25437.9058, Val Loss: 28979.5952
+Epoch 41/50, Train Loss: 24593.0664, Val Loss: 28121.6426
+Training complete. Best Val Loss: 27388.1147
+Model saved to models/lstm.pt
+2025-12-16 00:12:09,674 - INFO - === Stage train_lstm COMPLETED Successfully ===
+2025-12-16 00:12:09,674 - INFO - === Starting Stage: train_ensemble ===
+2025-12-16 00:12:09,674 - INFO - Executing script: src/train_ensemble.py
+2025-12-16 00:12:13,924 - ERROR - === Stage train_ensemble FAILED ===
+2025-12-16 00:12:13,925 - ERROR - Exit Code: 1
+2025-12-16 00:12:13,925 - ERROR - Error Output:
+Traceback (most recent call last):
+  File "C:\Users\Aishwarya\event\patchfestmlai\src\train_ensemble.py", line 12, in <module>
+    from src.models.lstm_model import LSTMModel, SlidingWindowDataset
+  File "C:\Users\Aishwarya\event\patchfestmlai\src\__init__.py", line 4, in <module>
+    from . import models
+  File "C:\Users\Aishwarya\event\patchfestmlai\src\models\__init__.py", line 3, in <module>
+    from .arima_model import train_arima
+  File "C:\Users\Aishwarya\event\patchfestmlai\src\models\arima_model.py", line 1, in <module>
+    import pmdarima as pm
+ModuleNotFoundError: No module named 'pmdarima'
+2025-12-16 00:12:13,925 - ERROR - Pipeline aborted due to stage failure.
